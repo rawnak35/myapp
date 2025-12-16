@@ -1,6 +1,6 @@
 package com.mytracker.transactions.dto;
 
-import com.mytracker.entity.enums.Category;
+import com.mytracker.transactions.entity.enums.Category;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

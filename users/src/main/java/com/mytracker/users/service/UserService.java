@@ -1,6 +1,6 @@
 package com.mytracker.users.service;
 
-import com.finTrack.mytracker.dto.UserDto;
+import com.mytracker.users.dto.UserDto;
 
 import java.util.List;
 

@@ -1,9 +1,9 @@
-package com.finTrack.mytracker.service;
+package com.mytracker.transactions.service;
 
 
-import com.finTrack.mytracker.dto.TransactionDto;
-import com.finTrack.mytracker.dto.ValueCountDto;
-import com.finTrack.mytracker.entity.enums.Category;
+import com.mytracker.transactions.dto.TransactionDto;
+import com.mytracker.transactions.dto.ValueCountDto;
+import com.mytracker.transactions.entity.enums.Category;
 
 import java.util.List;
 

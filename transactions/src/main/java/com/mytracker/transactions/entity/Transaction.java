@@ -1,6 +1,6 @@
 package com.mytracker.transactions.entity;
 
-import com.mytracker.entity.enums.Category;
+import com.mytracker.transactions.entity.enums.Category;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,7 +21,7 @@ public class Transaction {
     private Long id;
 
     @Column(name = "user_id")
-    private String user_id;
+    private String userId;
 
     @Column(name = "category")
     @Enumerated(EnumType.STRING)

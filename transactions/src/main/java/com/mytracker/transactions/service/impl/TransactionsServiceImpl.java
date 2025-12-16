@@ -1,15 +1,14 @@
-package com.finTrack.mytracker.service.impl;
+package com.mytracker.transactions.service.impl;
 
-import com.finTrack.mytracker.dto.TransactionDto;
-import com.finTrack.mytracker.dto.ValueCountDto;
-import com.finTrack.mytracker.entity.Transaction;
-import com.finTrack.mytracker.entity.User;
-import com.finTrack.mytracker.entity.enums.Category;
-import com.finTrack.mytracker.exception.ResourceNotFoundException;
-import com.finTrack.mytracker.mapper.TransactionMapper;
-import com.finTrack.mytracker.repository.TransactionRepository;
-import com.finTrack.mytracker.repository.UserRepository;
-import com.finTrack.mytracker.service.TransactionsService;
+import com.mytracker.transactions.dto.TransactionDto;
+import com.mytracker.transactions.dto.ValueCountDto;
+import com.mytracker.transactions.entity.Transaction;
+import com.mytracker.transactions.entity.enums.Category;
+import com.mytracker.transactions.exception.ResourceNotFoundException;
+import com.mytracker.transactions.mapper.TransactionMapper;
+import com.mytracker.transactions.repository.TransactionRepository;
+import com.mytracker.transactions.service.TransactionsService;
+
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -20,15 +19,10 @@ import java.util.List;
 public class TransactionsServiceImpl implements TransactionsService {
 
     private TransactionRepository transactionsRepository;
-    private UserRepository userRepository;
 
     @Override
     public TransactionDto createTrans(TransactionDto transDto) {
-        User user = userRepository.findByUsername(transDto.getUsername());
-        if(user == null){
-            throw new ResourceNotFoundException("User does not exist with given username" + transDto.getUsername());
-        }
-        Transaction savedTrans = transactionsRepository.save(TransactionMapper.mapToTransaction(transDto, user));
+        Transaction savedTrans = transactionsRepository.save(TransactionMapper.mapToTransaction(transDto));
         return TransactionMapper.mapToTransactionDto(savedTrans);
     }
 
@@ -40,11 +34,7 @@ public class TransactionsServiceImpl implements TransactionsService {
 
     @Override
     public List<TransactionDto> getByUsername(String username) {
-        User user = userRepository.findByUsername(username);
-        if (user == null) {
-            throw new ResourceNotFoundException("User does not exist with given username: " + username);
-        }
-        List<Transaction> transaction = transactionsRepository.findByUserId(user.getId());
+        List<Transaction> transaction = transactionsRepository.findByUserId(username);
         return transaction.stream().map(TransactionMapper::mapToTransactionDto).toList();
     }
 

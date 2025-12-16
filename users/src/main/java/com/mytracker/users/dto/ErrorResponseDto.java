@@ -1,4 +1,4 @@
-package com.finTrack.mytracker.dto;
+package com.mytracker.users.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

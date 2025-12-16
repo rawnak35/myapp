@@ -1,6 +1,6 @@
 package com.mytracker.transactions.exception;
 
-import com.finTrack.mytracker.dto.ErrorResponseDto;
+import com.mytracker.transactions.dto.ErrorResponseDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

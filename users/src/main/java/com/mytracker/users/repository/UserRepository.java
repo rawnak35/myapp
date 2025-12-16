@@ -1,6 +1,6 @@
-package com.finTrack.mytracker.repository;
+package com.mytracker.users.repository;
 
-import com.finTrack.mytracker.entity.User;
+import com.mytracker.users.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

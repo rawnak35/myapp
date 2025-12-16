@@ -1,12 +1,12 @@
-package com.finTrack.mytracker.service.impl;
+package com.mytracker.users.service.impl;
 
-import com.finTrack.mytracker.dto.UserDto;
-import com.finTrack.mytracker.entity.User;
-import com.finTrack.mytracker.exception.ResourceAlreadyExistsException;
-import com.finTrack.mytracker.exception.ResourceNotFoundException;
-import com.finTrack.mytracker.mapper.UserMapper;
-import com.finTrack.mytracker.repository.UserRepository;
-import com.finTrack.mytracker.service.UserService;
+import com.mytracker.users.dto.UserDto;
+import com.mytracker.users.entity.User;
+import com.mytracker.users.exception.ResourceAlreadyExistsException;
+import com.mytracker.users.exception.ResourceNotFoundException;
+import com.mytracker.users.mapper.UserMapper;
+import com.mytracker.users.repository.UserRepository;
+import com.mytracker.users.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
