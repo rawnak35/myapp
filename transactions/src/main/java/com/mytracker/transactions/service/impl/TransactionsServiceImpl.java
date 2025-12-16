@@ -28,7 +28,7 @@ public class TransactionsServiceImpl implements TransactionsService {
 
     @Override
     public TransactionDto getById(Long id) {
-        Transaction transaction = transactionsRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Transaction does not exist with given id: " + id));
+        Transaction transaction = transactionsRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Transaction", "id", id.toString()));
         return TransactionMapper.mapToTransactionDto(transaction);
     }
 
@@ -45,7 +45,7 @@ public class TransactionsServiceImpl implements TransactionsService {
 
     @Override
     public TransactionDto updateTransaction(Long id, TransactionDto updatedTrans) {
-        Transaction transaction = transactionsRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Transaction does not exist with given id: " + id));
+        Transaction transaction = transactionsRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Transaction", "id", id.toString()));
         transaction.setAmount(updatedTrans.getAmount());
         transaction.setCategory(updatedTrans.getCategory());
         transaction.setTime(updatedTrans.getTime());
@@ -56,7 +56,7 @@ public class TransactionsServiceImpl implements TransactionsService {
 
     @Override
     public void deleteTransaction(Long id) {
-        Transaction transaction = transactionsRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Transaction does not exist with given id: " + id));
+        Transaction transaction = transactionsRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Transaction", "id", id.toString()));
         transactionsRepository.delete(transaction);
     }
 

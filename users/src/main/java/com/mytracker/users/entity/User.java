@@ -35,7 +35,6 @@ public class User {
     @Column(name = "currency")
     private String currency;
 
-
     @PrePersist
     public void prePersist() {
         if (currency == null) {

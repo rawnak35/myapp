@@ -34,14 +34,14 @@ public class UserServiceImpl implements UserService {
     public UserDto getUserByUsername(String username) {
         User user = userRepository.findByUsername(username);
         if (user == null) {
-            throw new ResourceNotFoundException("User does not exist with given username : " + username);
+            throw new ResourceNotFoundException("User", "username", username);
         }
         return UserMapper.mapToUserDto(user);
     }
 
     @Override
     public UserDto getUserById(Long id) {
-        User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User does not exist with given username : " + id));
+        User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User", "id", id.toString()));
         return UserMapper.mapToUserDto(user);
     }
 
@@ -55,7 +55,7 @@ public class UserServiceImpl implements UserService {
     public UserDto updateUser(String username, UserDto updatedUserDto) {
         User user = userRepository.findByUsername(username);
         if (user == null) {
-            throw new ResourceNotFoundException("User does not exist with given username : " + username);
+            throw new ResourceNotFoundException("User", "username", username);
         }
         user.setFirstName(updatedUserDto.getFirstName());
         user.setLastName(updatedUserDto.getLastName());
@@ -66,7 +66,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUser(Long id) {
-        User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User does not exist with given id : " + id));
+        User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User", "id", id.toString()));
         userRepository.delete(user);
     }
 }
