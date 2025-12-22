@@ -3,10 +3,12 @@ package com.mytracker.transactions.controller;
 import com.mytracker.transactions.dto.TransactionDto;
 import com.mytracker.transactions.dto.ValueCountDto;
 import com.mytracker.transactions.service.TransactionsService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,12 +16,13 @@ import java.util.List;
 @Controller
 @RequestMapping("/api/transactions")
 @AllArgsConstructor
+@Validated
 public class TransactionController {
 
     private TransactionsService transactionsService;
 
     @PostMapping("/create")
-    public ResponseEntity<TransactionDto> create(@RequestBody TransactionDto transactionDto) {
+    public ResponseEntity<TransactionDto> create(@Valid @RequestBody TransactionDto transactionDto) {
         TransactionDto savedTrans = transactionsService.createTrans(transactionDto);
         return new ResponseEntity<>(savedTrans, HttpStatus.CREATED);
     }
@@ -43,7 +46,7 @@ public class TransactionController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<TransactionDto> updateTransaction(@PathVariable Long id, @RequestBody TransactionDto updatedTransaction) {
+    public ResponseEntity<TransactionDto> updateTransaction(@PathVariable Long id, @Valid @RequestBody TransactionDto updatedTransaction) {
         TransactionDto transactionDto = transactionsService.updateTransaction(id, updatedTransaction);
         return ResponseEntity.ok(transactionDto);
     }
