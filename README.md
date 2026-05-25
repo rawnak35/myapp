@@ -1,6 +1,6 @@
 ***Personal Finance Tracker (In Progress)***
 
-A backend-focused Personal Finance Tracker built with Spring Boot, designed to help users track income, expenses, and balances over time. The project emphasizes clean architecture, data modeling, and production-ready backend practices, making it well-suited as a portfolio project for backend and data engineering roles.
+A backend-focused Personal Finance Tracker built with Spring Boot, designed to help users track income, expenses, and balances over time. The project emphasizes clean architecture, data modeling, and production-ready backend practices.
 
 *Features*
 
