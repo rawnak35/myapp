@@ -54,4 +54,6 @@ The application follows a standard layered architecture:
 
 - Export data to CSV
 
+- Spring AI
+
 - deplayment
