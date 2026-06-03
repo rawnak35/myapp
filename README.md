@@ -30,7 +30,7 @@ A backend-focused Personal Finance Tracker built with Spring Boot, designed to h
 
 - Docker (containerization)
 
-- Microservices architecture (in progress / practice)**
+- Microservices architecture 
 
 *Architecture Overview*
 
