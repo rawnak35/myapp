@@ -1,4 +1,4 @@
-package com.finTrack.mytracker.entity.enums;
+package com.mytracker.users.entity.enums;
 
 public enum Category {
     GROCERIES,
